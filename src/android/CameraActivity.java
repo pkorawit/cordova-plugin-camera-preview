@@ -734,8 +734,7 @@ public class CameraActivity extends Fragment {
         mRecorder.setProfile(profile);
         mRecorder.setOutputFile(filePath);
         mRecorder.setOrientationHint(mOrientationHint);
-        mRecorder.setVideoFrameRate (15);
-        mRecorder.setVideoSize(videoWidth, videoHeight);
+        mRecorder.setVideoSize(1920, 1080);
 
         mRecorder.prepare();
         Log.d(TAG, "Starting recording");
