@@ -710,23 +710,24 @@ public class CameraActivity extends Fragment {
         
 
         CamcorderProfile profile;
-        if (CamcorderProfile.hasProfile(defaultCameraId, CamcorderProfile.QUALITY_HIGH)) {
-          profile = CamcorderProfile.get(defaultCameraId, CamcorderProfile.QUALITY_HIGH);
-        } else {
-          if (CamcorderProfile.hasProfile(defaultCameraId, CamcorderProfile.QUALITY_480P)) {
-            profile = CamcorderProfile.get(defaultCameraId, CamcorderProfile.QUALITY_480P);
-          } else {
-            if (CamcorderProfile.hasProfile(defaultCameraId, CamcorderProfile.QUALITY_720P)) {
-              profile = CamcorderProfile.get(defaultCameraId, CamcorderProfile.QUALITY_720P);
-            } else {
-              if (CamcorderProfile.hasProfile(defaultCameraId, CamcorderProfile.QUALITY_1080P)) {
-                profile = CamcorderProfile.get(defaultCameraId, CamcorderProfile.QUALITY_1080P);
-              } else {
-                profile = CamcorderProfile.get(defaultCameraId, CamcorderProfile.QUALITY_LOW);
-              }
-            }
-          }
-        }
+        profile = CamcorderProfile.get(defaultCameraId, CamcorderProfile.QUALITY_1080P);
+        // if (CamcorderProfile.hasProfile(defaultCameraId, CamcorderProfile.QUALITY_HIGH)) {
+        //   profile = CamcorderProfile.get(defaultCameraId, CamcorderProfile.QUALITY_HIGH);
+        // } else {
+        //   if (CamcorderProfile.hasProfile(defaultCameraId, CamcorderProfile.QUALITY_480P)) {
+        //     profile = CamcorderProfile.get(defaultCameraId, CamcorderProfile.QUALITY_480P);
+        //   } else {
+        //     if (CamcorderProfile.hasProfile(defaultCameraId, CamcorderProfile.QUALITY_720P)) {
+        //       profile = CamcorderProfile.get(defaultCameraId, CamcorderProfile.QUALITY_720P);
+        //     } else {
+        //       if (CamcorderProfile.hasProfile(defaultCameraId, CamcorderProfile.QUALITY_1080P)) {
+        //         profile = CamcorderProfile.get(defaultCameraId, CamcorderProfile.QUALITY_1080P);
+        //       } else {
+        //         profile = CamcorderProfile.get(defaultCameraId, CamcorderProfile.QUALITY_LOW);
+        //       }
+        //     }
+        //   }
+        // }
 
 
         mRecorder.setAudioSource(MediaRecorder.AudioSource.VOICE_RECOGNITION);
@@ -734,7 +735,7 @@ public class CameraActivity extends Fragment {
         mRecorder.setProfile(profile);
         mRecorder.setOutputFile(filePath);
         mRecorder.setOrientationHint(mOrientationHint);
-        mRecorder.setVideoSize(1920, 1080);
+        // mRecorder.setVideoSize(videoWidth, videoHeight);
 
         mRecorder.prepare();
         Log.d(TAG, "Starting recording");
