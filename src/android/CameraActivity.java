@@ -692,8 +692,8 @@ public class CameraActivity extends Fragment {
 
       this.recordFilePath = filePath;
       int mOrientationHint = calculateOrientationHint();
-      int videoWidth = 0;//set whatever
-      int videoHeight = 0;//set whatever
+      int videoWidth = width;//set whatever
+      int videoHeight = height;//set whatever
 
       Camera.Parameters cameraParams = mCamera.getParameters();
       if (withFlash) {
