@@ -698,7 +698,6 @@ public class CameraActivity extends Fragment {
       Camera.Parameters cameraParams = mCamera.getParameters();
       if (withFlash) {
         cameraParams.setFlashMode(withFlash ? Camera.Parameters.FLASH_MODE_TORCH : Camera.Parameters.FLASH_MODE_OFF);
-        cameraParams.setPictureSize(width, height);
         mCamera.setParameters(cameraParams);
         mCamera.startPreview();
       }
@@ -708,6 +707,7 @@ public class CameraActivity extends Fragment {
 
       try {
         mRecorder.setCamera(mCamera);
+        
 
         CamcorderProfile profile;
         if (CamcorderProfile.hasProfile(defaultCameraId, CamcorderProfile.QUALITY_HIGH)) {
@@ -734,6 +734,8 @@ public class CameraActivity extends Fragment {
         mRecorder.setProfile(profile);
         mRecorder.setOutputFile(filePath);
         mRecorder.setOrientationHint(mOrientationHint);
+        mRecorder.setVideoFrameRate (15);
+        mRecorder.setVideoSize(videoWidth, videoHeight);
 
         mRecorder.prepare();
         Log.d(TAG, "Starting recording");
