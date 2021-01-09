@@ -698,6 +698,7 @@ public class CameraActivity extends Fragment {
       Camera.Parameters cameraParams = mCamera.getParameters();
       if (withFlash) {
         cameraParams.setFlashMode(withFlash ? Camera.Parameters.FLASH_MODE_TORCH : Camera.Parameters.FLASH_MODE_OFF);
+        cameraParams.setPictureSize(width, height);
         mCamera.setParameters(cameraParams);
         mCamera.startPreview();
       }
