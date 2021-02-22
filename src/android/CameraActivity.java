@@ -703,7 +703,7 @@ public class CameraActivity extends Fragment {
       // Enable stabilzation
       String vstabSupported = cameraParams.get("video-stabilization-supported");
       if ("true".equals(vstabSupported)) {          
-          cameraParams.set("video-stabilization", toggle ? "true" : "false");
+          cameraParams.set("video-stabilization", "true");
       }
 
       mCamera.setParameters(cameraParams);
