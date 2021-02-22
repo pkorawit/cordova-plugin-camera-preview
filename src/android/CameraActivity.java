@@ -697,11 +697,17 @@ public class CameraActivity extends Fragment {
 
       Camera.Parameters cameraParams = mCamera.getParameters();
       if (withFlash) {
-        cameraParams.setFlashMode(withFlash ? Camera.Parameters.FLASH_MODE_TORCH : Camera.Parameters.FLASH_MODE_OFF);
-        mCamera.setParameters(cameraParams);
-        mCamera.startPreview();
+        cameraParams.setFlashMode(withFlash ? Camera.Parameters.FLASH_MODE_TORCH : Camera.Parameters.FLASH_MODE_OFF);        
+      }     
+
+      // Enable stabilzation
+      String vstabSupported = cameraParams.get("video-stabilization-supported");
+      if ("true".equals(vstabSupported)) {          
+          cameraParams.set("video-stabilization", toggle ? "true" : "false");
       }
 
+      mCamera.setParameters(cameraParams);
+      mCamera.startPreview();
       mCamera.unlock();
       mRecorder = new MediaRecorder();
 
