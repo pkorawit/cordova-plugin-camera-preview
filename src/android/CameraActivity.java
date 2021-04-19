@@ -736,13 +736,12 @@ public class CameraActivity extends Fragment {
         // }
 
         //Manually set recording video quality
+        mRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
         mRecorder.setVideoSize(1920, 1080);
         mRecorder.setVideoFrameRate(30); //might be auto-determined due to lighting
         mRecorder.setVideoEncodingBitRate(3000000);
         mRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
-        mRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
-
-
+        
         // mRecorder.setAudioSource(MediaRecorder.AudioSource.VOICE_RECOGNITION);
         // mRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
         // mRecorder.setProfile(profile);
@@ -755,6 +754,7 @@ public class CameraActivity extends Fragment {
         mRecorder.start();
         eventListener.onStartRecordVideo();
       } catch (IOException e) {
+        Log.d(TAG, e.getMessage());
         eventListener.onStartRecordVideoError(e.getMessage());
       }
     } else {
