@@ -715,8 +715,8 @@ public class CameraActivity extends Fragment {
         mRecorder.setCamera(mCamera);
         
 
-        CamcorderProfile profile;
-        profile = CamcorderProfile.get(defaultCameraId, CamcorderProfile.QUALITY_1080P);
+        // CamcorderProfile profile;
+        // profile = CamcorderProfile.get(defaultCameraId, CamcorderProfile.QUALITY_1080P);
         // if (CamcorderProfile.hasProfile(defaultCameraId, CamcorderProfile.QUALITY_HIGH)) {
         //   profile = CamcorderProfile.get(defaultCameraId, CamcorderProfile.QUALITY_HIGH);
         // } else {
@@ -735,10 +735,17 @@ public class CameraActivity extends Fragment {
         //   }
         // }
 
-
-        mRecorder.setAudioSource(MediaRecorder.AudioSource.VOICE_RECOGNITION);
+        //Manually set recording video quality
+        mRecorder.setVideoSize(1920, 1080);
+        mRecorder.setVideoFrameRate(30); //might be auto-determined due to lighting
+        mRecorder.setVideoEncodingBitRate(3000000);
+        mRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
         mRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
-        mRecorder.setProfile(profile);
+
+
+        // mRecorder.setAudioSource(MediaRecorder.AudioSource.VOICE_RECOGNITION);
+        // mRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
+        // mRecorder.setProfile(profile);
         mRecorder.setOutputFile(filePath);
         mRecorder.setOrientationHint(mOrientationHint);
         // mRecorder.setVideoSize(videoWidth, videoHeight);
