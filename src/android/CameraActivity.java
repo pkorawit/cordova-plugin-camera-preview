@@ -752,7 +752,7 @@ public class CameraActivity extends Fragment {
         eventListener.onStartRecordVideo();
       } catch (Exception e) {
         Log.d(TAG, "Error recording");
-        Log.d(TAG, e.getMessage());
+        Log.d(TAG, e);
         eventListener.onStartRecordVideoError(e.getMessage());
       }
     } else {
