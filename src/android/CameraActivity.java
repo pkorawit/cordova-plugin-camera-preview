@@ -750,7 +750,7 @@ public class CameraActivity extends Fragment {
         Log.d(TAG, "Starting recording");
         mRecorder.start();
         eventListener.onStartRecordVideo();
-      } catch (IOException e) {
+      } catch (Exception e) {
         Log.d(TAG, e.getMessage());
         eventListener.onStartRecordVideoError(e.getMessage());
       }
